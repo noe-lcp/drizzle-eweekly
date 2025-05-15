@@ -8,9 +8,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
+const node_postgres_1 = require("drizzle-orm/node-postgres");
+const schema = require("./database/schema");
+const schema_1 = require("./database/schema");
+const drizzle_orm_1 = require("drizzle-orm");
 let AppService = class AppService {
-    getHello() {
-        return 'Hello World!';
+    db;
+    onModuleInit() {
+        this.db = (0, node_postgres_1.drizzle)(process.env.DATABASE_URL);
+    }
+    getUser(userId) {
+        return this.db.query.users.findFirst({
+            where: (0, drizzle_orm_1.eq)(schema.users.id, userId),
+        });
+    }
+    createUser(userData) {
+        return this.db.insert(schema_1.users).values({
+            ...userData,
+        });
+    }
+    updateUser(userData) {
+        return this.db.insert(schema_1.users).values({
+            ...userData,
+        });
+    }
+    deleteUser(userId) {
+        return this.db.delete(schema_1.users).where((0, drizzle_orm_1.eq)(schema_1.users.id, userId));
     }
 };
 exports.AppService = AppService;
