@@ -1,5 +1,5 @@
 import { OnModuleInit } from '@nestjs/common';
-import { users } from './database/schema';
+import { users } from './db/schema';
 type UserInsert = typeof users.$inferInsert;
 export type UserCreate = Pick<UserInsert, 'firstName' | 'lastName' | 'email'>;
 export declare class AppService implements OnModuleInit {

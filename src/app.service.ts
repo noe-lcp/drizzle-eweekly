@@ -1,8 +1,8 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { drizzle, NodePgDatabase } from 'drizzle-orm/node-postgres';
 
-import * as schema from './database/schema';
-import { users } from './database/schema';
+import * as schema from './db/schema';
+import { users } from './db/schema';
 import { eq } from 'drizzle-orm';
 
 type UserInsert = typeof users.$inferInsert;

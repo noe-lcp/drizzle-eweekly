@@ -9,8 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
 const node_postgres_1 = require("drizzle-orm/node-postgres");
-const schema = require("./database/schema");
-const schema_1 = require("./database/schema");
+const schema = require("./db/schema");
+const schema_1 = require("./db/schema");
 const drizzle_orm_1 = require("drizzle-orm");
 let AppService = class AppService {
     db;
